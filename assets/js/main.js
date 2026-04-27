@@ -235,18 +235,42 @@
   }
 
   function renderStats() {
-    qsa('[data-render="stats"]').forEach((container) => {
-      container.innerHTML = data.stats
+    const mainIcons = [
+      `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>`,
+      `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><path d="M9 22v-4h6v4"></path><path d="M8 6h.01"></path><path d="M16 6h.01"></path><path d="M12 6h.01"></path><path d="M12 10h.01"></path><path d="M12 14h.01"></path><path d="M16 10h.01"></path><path d="M16 14h.01"></path><path d="M8 10h.01"></path><path d="M8 14h.01"></path></svg>`
+    ];
+
+    qsa('[data-render="stats-main"]').forEach((container) => {
+      container.innerHTML = data.stats.slice(0, 2)
         .map(
-          (item) => `
-            <article class="stat-card">
+          (item, index) => `
+            <article class="achievement-card reveal">
+              <div class="achievement-icon-box">${mainIcons[index]}</div>
               <strong class="stat-number" data-target="${item.value}" data-suffix="${item.suffix || ""}">0</strong>
               <h3>${item.label}</h3>
-              <p>${item.detail}</p>
+              ${index === 1 ? '<div class="achievement-short-line"></div>' : ""}
+              <p>${item.detail.replace('2012', '<span class="highlight-red">2012</span>')}</p>
             </article>
+            ${index === 0 ? '<div class="achievement-divider"><div class="divider-glow"></div></div>' : ""}
           `
         )
         .join("");
+    });
+
+    const pillars = [
+      { label: "Client Focused", icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>` },
+      { label: "Trust & Transparency", icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>` },
+      { label: "Quality Execution", icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>` },
+      { label: "On Time Delivery", icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>` }
+    ];
+
+    qsa('[data-render="trust-pillars"]').forEach((container) => {
+      container.innerHTML = pillars.map(p => `
+        <div class="pillar-item">
+          <div class="pillar-circle">${p.icon}</div>
+          <span>${p.label}</span>
+        </div>
+      `).join("");
     });
   }
 
@@ -323,7 +347,7 @@
                 <span class="pill">${item.metric}</span>
                 <h3>${item.title}</h3>
                 <p>${item.summary}</p>
-                <a class="btn btn-sm btn-wa" href="https://wa.me/917797720372?text=Hello%2C%20I%20am%20enquiring%20about%20the%20${encodeURIComponent(item.title)}" target="_blank" rel="noreferrer">Enquire Now</a>
+                <a class="btn btn-sm btn-wa" href="https://wa.me/919113925265?text=Hello%2C%20I%20am%20enquiring%20about%20the%20${encodeURIComponent(item.title)}" target="_blank" rel="noreferrer">Enquire Now</a>
               </div>
             </article>
           `
@@ -333,14 +357,30 @@
   }
 
   function renderProcess() {
+    const processIcons = [
+      `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
+      `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>`,
+      `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>`,
+      `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>`,
+      `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><polyline points="16 11 18 13 22 9"></polyline></svg>`
+    ];
+
     qsa('[data-render="process"]').forEach((container) => {
       container.innerHTML = data.process
         .map(
           (item, index) => `
-            <article class="process-step">
-              <span>${String(index + 1).padStart(2, "0")}</span>
-              <h3>${item.step}</h3>
-              <p>${item.detail}</p>
+            <article class="process-card reveal">
+              <div class="process-icon-outer">
+                <div class="process-icon-circle">${processIcons[index]}</div>
+                ${index < data.process.length - 1 ? '<div class="process-line-dashed"></div>' : ""}
+              </div>
+              <div class="process-content">
+                <span class="step-label">0${index + 1}</span>
+                <h3>${item.step}</h3>
+                <div class="process-accent-line"></div>
+                <p>${item.detail}</p>
+              </div>
+              <div class="process-sketch sketch-${index + 1}"></div>
             </article>
           `
         )

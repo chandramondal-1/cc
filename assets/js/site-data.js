@@ -4,12 +4,12 @@ window.SITE_DATA = {
     shortName: "Crescent",
     tagline: "Building Tomorrow With Strength & Precision",
     email: "crescentconstruction3@gmail.com",
-    phonePrimary: "+91 77977 20372",
-    phonePrimaryLink: "+917797720372",
+    phonePrimary: "+91 9113925265",
+    phonePrimaryLink: "+919113925265",
     phoneSecondary: "+91 95633 85027",
     phoneSecondaryLink: "+919563385027",
     whatsappLink:
-      "https://wa.me/917797720372?text=Hello%2C%20I%20would%20like%20to%20discuss%20a%20construction%20project.",
+      "https://wa.me/919113925265?text=Hello%2C%20I%20would%20like%20to%20discuss%20a%20construction%20project.",
     office:
       "Darshan Apartment, Ground Floor, Bhanu Bhakta Sarani, Pradhan Nagar, Darjeeling, West Bengal 734003",
     projectLocation:
