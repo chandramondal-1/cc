@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | CRESCENT CONSTRUCTION</title>
+  <meta name="description" content="Browse CRESCENT CONSTRUCTION projects across residential and government work, with filters for category, status, year and location.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/branding/favicon.svg">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script>document.documentElement.dataset.theme=localStorage.getItem("kuber-theme")||"dark";</script>
+  <script defer src="assets/js/site-data.js"></script>
+  <script defer src="assets/js/main.js"></script>
+</head>
+<body data-page="projects">
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-hero" style="--hero-image:url('/assets/images/projects/kuber/kuber-render-1.jpg')">
+      <div class="container">
+        <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Projects</span></div>
+        <span class="eyebrow">Project Portfolio</span>
+        <h1>Interactive Project Filter System</h1>
+        <p>Filter the portfolio by category, status, year and location to give the site a larger, more professional contractor feel.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container filter-shell reveal" data-filter-shell>
+        <div class="filter-bar">
+          <label>Category
+            <select data-filter="category">
+              <option value="">All</option>
+              <option value="Residential">Residential</option>
+              <option value="Government">Government</option>
+            </select>
+          </label>
+          <label>Status
+            <select data-filter="status">
+              <option value="">All</option>
+              <option value="Completed">Completed</option>
+              <option value="Ongoing">Ongoing</option>
+            </select>
+          </label>
+          <label>Year
+            <select data-filter="year">
+              <option value="">All</option>
+              <option value="2012">2012</option>
+              <option value="2016">2016</option>
+              <option value="2017">2017</option>
+              <option value="2026">2026</option>
+            </select>
+          </label>
+          <label>Location
+            <select data-filter="location">
+              <option value="">All</option>
+              <option value="Pradhan Nagar">Pradhan Nagar</option>
+              <option value="Pradhannagar">Pradhannagar</option>
+              <option value="Gurung Basti">Gurung Basti</option>
+              <option value="Kurseong">Kurseong</option>
+            </select>
+          </label>
+        </div>
+        <div class="cards-grid" data-render="projects" data-scope="all"></div>
+        <p class="empty-state" data-filter-empty hidden>No projects match the selected filters.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container spotlight">
+        <div class="spotlight-body reveal">
+          <span class="eyebrow">Ongoing Residential Focus</span>
+          <h2>Crescent Niwas is ready for a dedicated project detail experience.</h2>
+          <p>
+            Instead of a simple single page mention, Crescent Niwas now has a project detail page with overview,
+            flat configuration, gallery, brochure download, material table and location advantage section.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="project-kuber-niwas.html">Open Crescent Niwas</a>
+            <a class="btn-secondary" href="assets/docs/kuber-niwas-brochure.pdf">Download Brochure</a>
+          </div>
+        </div>
+        <div class="spotlight-media reveal">
+          <img src="assets/images/brochure/kuber-3d-showcase.jpg" alt="Crescent Niwas brochure showcase">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers | CRESCENT CONSTRUCTION</title>
+  <meta name="description" content="Join CRESCENT CONSTRUCTION. Explore open roles, trainee opportunities and submit your application for construction-related positions.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/branding/favicon.svg">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script>document.documentElement.dataset.theme=localStorage.getItem("kuber-theme")||"dark";</script>
+  <script defer src="assets/js/site-data.js"></script>
+  <script defer src="assets/js/main.js"></script>
+</head>
+<body data-page="careers">
+  <div id="site-header"></div>
+  <main>
+    <section class="page-hero" style="--hero-image:url('/assets/images/projects/government/presidency-2.jpeg')">
+      <div class="container">
+        <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Careers</span></div>
+        <span class="eyebrow">Join Us</span>
+        <h1>Career & Internship Interest</h1>
+        <p>Keep the company looking active, structured and open to talent growth.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="role-grid" data-render="roles"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid-2">
+        <div class="policy-card reveal">
+          <span class="eyebrow">Why Join</span>
+          <h2>Work around real project contexts.</h2>
+          <ul class="detail-list">
+            <li>Residential, restoration and institutional work exposure</li>
+            <li>Practical site-learning environment</li>
+            <li>Growth-ready company image with engineering focus</li>
+          </ul>
+        </div>
+        <div class="form-card reveal">
+          <span class="eyebrow">Apply</span>
+          <h2>Share your application</h2>
+          <form class="form-grid" data-mail-form="careers">
+            <input type="text" name="company_name" tabindex="-1" autocomplete="off" class="hidden">
+            <div class="form-row-2">
+              <label>Name
+                <input type="text" name="name" data-label="Name" required>
+              </label>
+              <label>Phone
+                <input type="tel" name="phone" data-label="Phone">
+              </label>
+            </div>
+            <div class="form-row-2">
+              <label>Email
+                <input type="email" name="email" data-label="Email">
+              </label>
+              <label>Role
+                <input type="text" name="role" data-label="Role applied for" placeholder="Site Engineer / Intern / Documentation">
+              </label>
+            </div>
+            <label>Experience / Summary
+              <textarea name="message" data-label="Experience / Summary" placeholder="Tell us about your background and resume link if available."></textarea>
+            </label>
+            <button class="btn" type="submit">Send Application</button>
+          </form>
+          <p class="form-response"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer id="site-footer"></footer>
+</body>
+</html>
